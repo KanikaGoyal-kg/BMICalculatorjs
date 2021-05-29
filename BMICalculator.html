@@ -1,0 +1,74 @@
+<html>
+  <head>
+    <title></title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <div class="card-header text-center">BMI Calculator</div>
+        <div class="card-body">
+          <form class="w-50 m-auto" onsubmit="return false">
+            <div class="form-group">
+              <label>Weight:</label>
+              <input
+                type="number"
+                placeholder="Weight in kg"
+                required
+                id="weight"
+                name=""
+                class="form-control"
+              />
+            </div>
+            <div class="form-group">
+              <label>Height:</label>
+              <input
+                type="number"
+                placeholder="Height in Ft"
+                required
+                id="height"
+                name=""
+                class="form-control"
+              />
+            </div>
+            <div class="form-group">
+              <label>BMI value:</label>
+              <input type="text" id="bmivalue" name="" class="form-control" />
+            </div>
+            <div>
+              <button
+                type="submit"
+                class="btn btn-success"
+                onclick="getbmivalue()"
+              >
+                Check BMI
+              </button>
+            </div>
+          </form>
+        </div>
+        <div class="card-footer text-center">
+          A healthy BMI ranges between 19 and 25
+        </div>
+      </div>
+    </div>
+    <script>
+      function getbmivalue() {
+        var weight = document.getElementById("weight").value;
+        var height = document.getElementById("height").value;
+
+        height = height * 12;
+        height = height * 0.025; //Height in meter
+
+        var newbmivalue = weight / (height * height);
+        var approxvalue = Math.round(newbmivalue);
+        document.getElementById("bmivalue").value = approxvalue;
+      }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
